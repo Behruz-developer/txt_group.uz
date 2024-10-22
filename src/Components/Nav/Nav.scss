@@ -1,0 +1,129 @@
+.nav {
+    height: 61px;
+    background-color: #004F2E;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    margin-top: 20px;
+    padding: 0px 50px;
+
+    @include media (1100px){
+        padding: 0px 20px;
+    }
+    &_logo {
+
+        img {
+            width: 139px;
+        }
+
+        &.active2 {
+            margin-top: -30px;
+            margin-bottom: 30px;
+        }
+    }
+
+    &_container {
+        width: 100%;
+    }
+
+    &_box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        width: 100%;
+    }
+
+    &_phone_box {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        column-gap: 11px;
+    }
+
+    &_phone {
+        font-size: 22px;
+    }
+
+    &_list {
+        list-style: none;
+        display: flex;
+        column-gap: 20px;
+
+        @include media (1100px) {
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            background-color: #004F2E;
+            width: 100%;
+            left: 0;
+            align-items: center;
+            height: 80vh;
+            z-index: 1;
+            gap: 30px;
+            transform: translateY(-110%);
+            padding-top: 60px;
+            transition: .3s;
+
+            &.active {
+                transform: translate(0);
+
+            }
+        }
+    }
+
+    &_link {
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: white;
+    }
+
+    &_contacts {
+        display: flex;
+        align-items: center;
+        column-gap: 25px;
+    }
+
+    &_telegram {
+        font-size: 20px;
+        color: white;
+    }
+
+    &_menu,
+    &_close {
+        color: white;
+        cursor: pointer;
+        font-size: 25px;
+        display: none;
+
+        @include media (1100px) {
+            display: block;
+        }
+    }
+
+    &_close {
+        position: absolute;
+        top: 25px;
+        right: 30px;
+    }
+}
+
+.active1 {
+    @include media (1100px) {
+        display: none;
+    }
+}
+
+.active2 {
+    display: none;
+
+    @include media (1100px) {
+        display: flex;
+    }
+}
