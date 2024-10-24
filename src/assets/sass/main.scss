@@ -18,10 +18,8 @@ a {
 }
 
 .container {
-    padding: 0px 50px;
-    margin: auto;
-    margin-top: auto;
-
+    width: 90%;
+    margin-left: 5%;
     @include media (600px) {
         padding: 0px 20px;
 

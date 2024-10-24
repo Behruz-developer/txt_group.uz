@@ -4,12 +4,13 @@
 .catalog {
 
     margin-top: 50px;
-&_box{
-    display: flex;
-    column-gap: 2%;
-}
+
+    &_box {
+        display: flex;
+        column-gap: 2%;
+    }
+
     &_card {
-        max-width: 704px;
         width: 32%;
 
         &_img {
@@ -78,25 +79,26 @@
         width: 100%;
         color: white;
         padding: 12px;
-padding-bottom: 12px;
+        padding-bottom: 6px;
+
         &_text {
             font-family: 'Inter', sans-serif;
-            font-size: 12.48px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 400;
             line-height: 26.21px;
             letter-spacing: -0.02em;
 
-            &_card{
+            &_card {
                 text-align: right;
                 display: flex;
-                justify-content:end;
+                justify-content: end;
             }
         }
     }
 
     &_subtitle {
         font-family: 'Inter', sans-serif;
-        font-size: 21px;
+        font-size: 20px;
         font-weight: 500;
         line-height: 24px;
         letter-spacing: -0.47999998927116394px;
@@ -104,20 +106,22 @@ padding-bottom: 12px;
 
     &_subtitle2 {
         font-family: 'Inter', sans-serif;
-        font-size: 12px;
-        font-weight: 500;
+        font-size: 14px;
+        font-weight: 400;
         line-height: 16px;
         letter-spacing: -0.3199999928474426px;
         margin-top: 5px;
     }
 }
-.card_palace{
+
+.card_palace {
     font-family: 'Inter', sans-serif;
-font-size: 12px;
-font-weight: 500;
-text-align: end;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: end;
 }
-.pin_address{
+
+.pin_address {
     width: 10px;
     margin-right: 5px;
 }

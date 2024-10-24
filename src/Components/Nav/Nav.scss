@@ -1,20 +1,29 @@
 .nav {
-    height: 61px;
+    height: 55px;
     background-color: #004F2E;
     margin-top: 0;
     display: flex;
     align-items: center;
     border-radius: 12px;
     margin-top: 20px;
-    padding: 0px 50px;
+    padding: 0px 20px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 90%;
+    margin-left: 5%;
 
-    @include media (1100px){
+
+
+    @include media (1100px) {
         padding: 0px 20px;
     }
+
     &_logo {
 
         img {
-            width: 139px;
+            width: 170px;
+            display: block;
         }
 
         &.active2 {
@@ -43,10 +52,14 @@
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
         column-gap: 11px;
+
+        p{
+            font-size: 15px;
+        }
     }
 
     &_phone {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     &_list {
@@ -79,7 +92,7 @@
     &_link {
         color: white;
         font-family: "Montserrat", sans-serif;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 500;
         color: white;
     }
@@ -87,10 +100,11 @@
     &_contacts {
         display: flex;
         align-items: center;
-        column-gap: 25px;
+        column-gap: 15px;
     }
 
     &_telegram {
+        margin-top: 5px;
         font-size: 20px;
         color: white;
     }
