@@ -13,8 +13,6 @@
     width: 90%;
     margin-left: 5%;
 
-
-
     @include media (1100px) {
         padding: 0px 20px;
     }
@@ -53,7 +51,7 @@
         font-weight: 500;
         column-gap: 11px;
 
-        p{
+        p {
             font-size: 15px;
         }
     }
