@@ -6,6 +6,7 @@ import pin_adress from "../../assets/images/pin_adress.svg";
 
 const Catalog = () => {
   // Katalogdagi kartalar uchun ma'lumotlar
+  
   const catalogData = [
     {
       images: [catalog, man, wal],
