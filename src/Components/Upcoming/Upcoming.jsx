@@ -1,108 +1,61 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
-import { CiGlobe } from "react-icons/ci";
-import { PiPhoneCallLight } from "react-icons/pi";
+import image1 from '../../assets/images/baraka1.jpg';
+import image2 from '../../assets/images/baraka2.jpg';
+import image3 from '../../assets/images/baraka3.jpg';
+import image4 from '../../assets/images/havas1.jpg';
+import image5 from '../../assets/images/havas2.jpg';
+import image6 from '../../assets/images/havas3.jpg';
+import image7 from '../../assets/images/kamalak1.jpg';
+import image8 from '../../assets/images/kamalak2.jpg';
+import image9 from '../../assets/images/kamalak3.jpg';
 
-const Upcoming = ({ images }) => {
+const Upcoming = () => {
+  const images = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+  ];
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [zoom, setZoom] = useState(true);
-
-  const nextSlide = () => {
-    setZoom(true); // Zoom-in boshlanadi
-    setTimeout(() => {
-      setZoom(false); // 3 sekunddan keyin zoom-out boshlanadi
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); // Zoom-out tugagach keyingi slaydga o'tish
-        setZoom(true); // Keyingi slayd uchun zoom-in boshlanadi
-      }, 7000); // 3 sekund zoom-out davomida
-    }, 7000); // 3 sekund zoom-in davomida
-  };
 
   useEffect(() => {
-    nextSlide(); // Dastlabki renderda birinchi slayd uchun zoom animatsiyasini boshlash
-    const autoSlider = setInterval(nextSlide, 15000); // Har bir slaydda umumiy jarayon 6 sekund davom etadi (3 sekund zoom-in + 3 sekund zoom-out)
-    return () => clearInterval(autoSlider);
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div className="main-carousel" id="home">
-      <div className="carousel">
-        <div className="items">
-          {images &&
-            images.map((src, index) => (
-              <div
-                className={`img_card carousel-image ${index === currentIndex ? "current" : ""}`}
-                key={index}
-              >
-                {src.endsWith(".mp4") ? (
-                  <video
-                    src={src}
-                    autoPlay
-                    loop
-                    muted
-                    style={{
-                      width: '100%'
-                    }}
-                  />
-                ) : (
-                  <img
-                    src={src}
-                    alt=""
-                    style={{
+  const handleThumbnailClick = (index) => {
+    setCurrentIndex(index);
+  };
 
-                    }}
-                  />
-                )}
-                <div className="img_text">
-                  <div className="container upcoming_container">
-                    <div className="upcoming_box">
-                      <div className="upcoming_card">
-                        <h3
-                          className="slidet_text"
-                          key={`navimage${index + 1}`}
-                        >
-                          Yangi avlod binolari uchun sifatli beton mahsulotlari
-                        </h3>
-                        <p className="slidet_text2">
-                          Beton mahsulotlarini butun O'zbekiston bo'ylab yetkazib beramiz. Yuqori sifat, tezkor xizmat va ishonchli yetkazib berish!
-                        </p>
-                      </div>
-                      {/* <div className="upcoming_icon2_card">
-                        <Link
-                          to="houses"
-                          smooth={true}
-                          offset={-50}
-                          duration={500}
-                          href="#!"
-                          className="upcoming_icon2"
-                        >
-                          Rejalashtirishni tanlash
-                        </Link>
-                      </div>
-                      <div className="upcoming_icons">
-                        <div className="upcoming_icons_card">
-                          <a href="#!" className="upcoming_icon">
-                            Live
-                          </a>
-                          <Link
-                            to="form"
-                            smooth={true}
-                            offset={-50}
-                            duration={500}
-                            href="#!"
-                            className="upcoming_icon"
-                          >
-                            <PiPhoneCallLight className="upcoming_phone" />
-                          </Link>
-                        </div>
-                      </div> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-        </div>
+  return (
+    <div className="image-slider">
+      <div className="main-image">
+        <img src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
+      </div>
+      <div className="container">
+      <div className="thumbnail-container">
+        {images.map((image, index) => (
+          <div className="thumbnail_card">
+            <img
+              key={index}
+              src={image}
+              alt={`Thumbnail ${index + 1}`}
+              className={`thumbnail ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => handleThumbnailClick(index)}
+            />
+          </div>
+
+        ))}
+      </div>
       </div>
     </div>
   );

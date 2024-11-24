@@ -11,8 +11,8 @@ const App = () => {
   return (
     <div>
       <Nav/>
-      <Upcoming images={images}/>
-      <Catalog/> 
+      <Upcoming />
+      {/* <Catalog/>  */}
 
       <Footer/>
     </div>
