@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import image1 from '../../assets/images/baraka1.jpg';
 import image2 from '../../assets/images/baraka2.jpg';
@@ -10,6 +8,9 @@ import image6 from '../../assets/images/havas3.jpg';
 import image7 from '../../assets/images/kamalak1.jpg';
 import image8 from '../../assets/images/kamalak2.jpg';
 import image9 from '../../assets/images/kamalak3.jpg';
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css';
+import { Pagination } from 'swiper/modules';
 
 const Upcoming = () => {
   const images = [
@@ -42,20 +43,28 @@ const Upcoming = () => {
         <img src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
       </div>
       <div className="container">
-      <div className="thumbnail-container">
-        {images.map((image, index) => (
-          <div className="thumbnail_card">
-            <img
-              key={index}
-              src={image}
-              alt={`Thumbnail ${index + 1}`}
-              className={`thumbnail ${index === currentIndex ? 'active' : ''}`}
-              onClick={() => handleThumbnailClick(index)}
-            />
-          </div>
-
-        ))}
-      </div>
+        <Swiper
+          className="thumbnail-container "
+          slidesPerView={6}
+          centeredSlides={false}
+          spaceBetween={20}
+          grabCursor={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+        >
+          {images.map((image, index) => (
+            <SwiperSlide key={index} className="thumbnail_card">
+              <img
+                src={image}
+                alt={`Thumbnail ${index + 1}`}
+                className={`thumbnail ${index === currentIndex ? 'active' : ''}`}
+                onClick={() => handleThumbnailClick(index)}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

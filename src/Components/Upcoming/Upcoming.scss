@@ -4,8 +4,9 @@
     position: relative;
 
     .main-image {
-
         height: 100%;
+        position: relative;
+        z-index: 1; /* Bu joyda z-index 1 ga sozlandi */
 
         img {
             width: 100%;
@@ -15,20 +16,22 @@
     }
 
     .thumbnail-container {
+        padding: 20px;
+        padding-right: 200px;
         position: absolute;
+        width: 100%;
         bottom: 50px;
         display: flex;
         justify-content: center;
         margin-top: 10px;
         gap: 10px;
-
+        z-index: 2;
+        
         .thumbnail_card {
             width: 250px;
             height: 140px;
             overflow: hidden;
             border-radius: 4px;
-
-
         }
 
         .thumbnail {
